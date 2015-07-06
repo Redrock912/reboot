@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript"
+            src="../js/bower_components/angular/angular.min.js"></script>
+    <script src ="angular-resource.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/template.css">
+</head>
+<body>
+    <script type="text/javascript" src="../template/monster.html">
+        function button1()
+        {
+            alert("저장되었습니다.");
+        }
+    </script>
+<div ng-app="TabsApp">
+    <div id="tabs" ng-controller="TabsCtrl">
+        <ul>
+            <li ng-repeat="tab in tabs" 
+                ng-class="{active:isActiveTab(tab.url)}" 
+                ng-click="onClickTab(tab)">{{tab.title}}</li>
+        </ul>
+        <div id="mainView">
+            <h1>내용을 작성하세요.</h1>
+            <div ng-include="currentTab"></div>
+            <div ng-controller="inputController">
+    <p>이름: <input type="text" ng-model="input.name"></p>
+    <p>타입: <input type="text" ng-model="input.type"></p>
+    <p>체력: <input type="text" ng-model="input.hp"></p>
+    <p>공격력: <input type="text" ng-model="input.atk"></p>
+    <p>방어력: <input type="text" ng-model="input.def"></p>
+</div>
+            <input type = "button" value="Button 1" onclick = "button1()">
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>
